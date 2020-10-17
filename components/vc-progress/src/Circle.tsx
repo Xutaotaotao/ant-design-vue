@@ -81,6 +81,12 @@ function getPathStyles(
 const Circle = defineComponent({
   name: 'Circle',
   props: initDefaultProps(circlePropTypes, circleDefaultProps),
+  data() {
+    return {
+      paths: {},
+      gradientId: 0,
+    };
+  },
   created() {
     this.paths = {};
     this.gradientId = gradientSeed;
@@ -153,7 +159,7 @@ const Circle = defineComponent({
       gapDegree,
       gapPosition,
     );
-    delete restProps.percent;
+    // delete restProps.percent;
     const strokeColorList = toArray(strokeColor);
     const gradient = strokeColorList.find(
       color => Object.prototype.toString.call(color) === '[object Object]',

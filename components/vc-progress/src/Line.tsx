@@ -6,6 +6,11 @@ import { propTypes, defaultProps } from './types';
 const Line = defineComponent({
   name: 'Line',
   props: initDefaultProps(propTypes, defaultProps),
+  data() {
+    return {
+      paths: {},
+    };
+  },
   created() {
     this.paths = {};
   },
@@ -22,7 +27,7 @@ const Line = defineComponent({
       ...restProps
     } = this.$props;
 
-    delete restProps.gapPosition;
+    // delete restProps.gapPosition;
 
     const percentList = Array.isArray(percent) ? percent : [percent];
     const strokeColorList = Array.isArray(strokeColor) ? strokeColor : [strokeColor];
